@@ -1,6 +1,6 @@
-# wacomchina
+# videoH5Pc
 
-> 访问地址：<http://www.wacomchina.cn>
+> 访问地址：<https://fen666.github.io/videoH5>
 通过Gulp构建工具结合NodeJS快速开发前端静态页。
 
 ## 开发
