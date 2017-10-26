@@ -23,11 +23,8 @@ $(function() {
     c.arc(250,250,248,Math.PI*9/6,Math.PI*1.5,true);
     c.fill()
     // Circle 旋转定位
-    var val = $(window).height() - $('#circrlBox').height()
-    console.log($(window).height())
-    console.log($('#circrlBox').height())
-    console.log(val)
-    $('#circrlBox')[0].style.marginTop = val+100+'px'
+    var val = $(window).height() - $('#circrlBox').height()/5 - $('#main').height()/5
+    $('#circrlBox')[0].style.marginTop = val-50+'px'
     // resize
     $(window).resize(function(){
         location.reload();

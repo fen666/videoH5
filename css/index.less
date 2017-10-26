@@ -21,6 +21,7 @@ body{
 		top:50%;
 		margin-left: -250px;
 		z-index: 50;
+	    transform-origin:center center;
 		transform:scale(0.2);
 		transition: all 2s;
 		.circrlBox{
@@ -34,6 +35,7 @@ body{
 			margin-left: -250px;
 		  	z-index: 50;
 		  	&.scal{
+			  transform-origin:center center;
 			  transform:scale(5);
 			  -webkit-transform:scale(5);
 			  -moz-transform:scale(5);
@@ -124,14 +126,12 @@ body{
 	  left:0;
 	  top:0;
 	  animation: flayRT 10s ease infinite;
-	  //animation: rotating 5s linear infinite
 	}
   .birds1{
 	position: absolute;
 	left:0;
 	top:0;
 	animation: flayRB 12s ease infinite;
-	//animation: rotating 5s linear infinite
   }
 }
 @keyframes rotating {
@@ -140,7 +140,7 @@ body{
 }
 @keyframes flayRT {
 　　from {left:1520px; top:100px;}
-　　to {left:-500px; top:50px;}
+　　to {left:-500px; top:100px;}
 }
 @keyframes flayRB {
   　　from {left:2500px; top:800px;}
