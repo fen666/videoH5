@@ -24,9 +24,16 @@ $(function() {
     c.fill()
     // Circle 旋转定位
     var val = $(window).height() - $('#circrlBox').height()
-    $('#circrlBox')[0].style.marginTop = val/2+'px'
+    console.log($(window).height())
+    console.log($('#circrlBox').height())
+    console.log(val)
+    $('#circrlBox')[0].style.marginTop = val+100+'px'
     // resize
     $(window).resize(function(){
         location.reload();
     });
+    // onload
+    $(window).load(function() {
+      $("#circrlBox").addClass('scal')
+    })
 })
