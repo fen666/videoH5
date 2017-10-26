@@ -3,9 +3,13 @@
  */
 ($)(function() {
   // 视频结束
-  var val = $(window).height()
-  console.log($(window).height())
-  console.log($('#circrlBox').height())
-  console.log(val)
-  $('#videoEnd')[0].style.height = val+'px'
+  var valW = $(window).width()
+  var valH = $(window).height()
+  $('#videoEnd')[0].style.width = valW-340+'px'
+  $('#videoEnd')[0].style.height = valH-200+'px'
+  $('#clickBtn')[0].style.marginLeft = (valW-340-400)/2+'px'
+  // resize
+  $(window).resize(function(){
+      location.reload();
+  });
 })
