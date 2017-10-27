@@ -1,6 +1,5 @@
 node_modules
-.ideas
+.idea
 *.ideas
 *.log
 *.zip
-dist/
