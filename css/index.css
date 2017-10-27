@@ -46,6 +46,15 @@ body {
   -ms-transform: scale(5);
   transition: all 1s;
 }
+.container .main .circrlBox.scalSmall {
+  transform-origin: center center;
+  transform: scale(3);
+  -webkit-transform: scale(3);
+  -moz-transform: scale(3);
+  -o-transform: scale(3);
+  -ms-transform: scale(3);
+  transition: all 1s;
+}
 .container .main .circrlBox .cirRotate {
   width: 500px;
   height: 500px;
