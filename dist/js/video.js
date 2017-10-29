@@ -1,1 +1,0 @@
-$(function(){$("#myAudio")[0].onended=function(){window.location.href="../page/endVideo.html"}});
