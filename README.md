@@ -39,6 +39,8 @@ dist/
 
 ### 项目运行
 ```
+// 安装依赖
+npm install
 // 开发模式
 npm run dev 或者 gulp (gulp default)
 // 生产模式

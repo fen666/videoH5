@@ -27,29 +27,61 @@
                 location.reload();
             });
             $(".videoEnd")[0].style.background = '#171112';
-            $(".videoEnd")[0].style.padding = '30px 100px';
-            $(".videoEnd")[0].style.margin = '70px';
+            // $(".videoEnd")[0].style.padding = '30px 100px';
+            // $(".videoEnd")[0].style.margin = '70px';
         } else {  // mobile
-            // var flexible = new Flexible(1008, 640, 'no_border');
-            var flexible = new Flexible(1008, 640, 'no_border');
-            $(".videoEnd")[0].style.background = '#1d1819';
-            // $(".videoEnd")[0].style.padding = '50px 120px';
-            // $(".videoEnd")[0].style.margin = '50px';
-            // alert($(".videoEnd")[0].style.height)
-            $(".videoEnd")[0].style.padding = '30px 100px';
-            $(".videoEnd")[0].style.margin = '70px';
-            $(".videoEnd")[0].style.minWidth = '1000px'
+          $(".videoEnd")[0].style.background = '#1d1819';
+          var flexible = new Flexible(1008, 640, 'no_border');
+          // $(".videoEnd")[0].style.padding = '30px 100px';
+          // $(".videoEnd")[0].style.margin = '70px';
+          $(".videoEnd")[0].style.minWidth = '1000px'
+          // $(".videoEnd")[0].style.maxHeight = ($(".videoEnd")[0].style.height.replace('px', '') - 240) / 2 + 'px'
+          $(".videoEnd")[0].style.position = 'absolute'
+          $(".videoEnd")[0].style.left = '40px'
+          $(".videoEnd")[0].style.top = '-570px'
+          $('#clickBtn')[0].style.marginLeft = ($(".videoEnd")[0].style.height.replace('px', '') - 400 -200) / 2 + 'px'
+          $('.now')[0].style.marginRight = '0'
+          // window.addEventListener('orientationchange', function (event) {
+          //     if (window.orientation == 180 || window.orientation == 0) {  // 竖屏
+          //
+          //     }
+          //     if (window.orientation == 90 || window.orientation == -90) {  // 横屏
+          //       // $(".videoEnd")[0].style.padding = '30px 120px';
+          //       // $(".videoEnd")[0].style.margin = '50px';
+          //       $(".videoEnd")[0].style.top = '0'
+          //       alert($(window).width())
+          //       $(".videoEnd")[0].style.maxWidth = $(window).width()
+          //
+          //     }
+          // });
             // $(".videoEnd")[0].style.maxHeight = ($(".videoEnd")[0].style.height.replace('px', '') - 240) / 2 + 'px'
-            $(".videoEnd")[0].style.position = 'absolute'
-            $(".videoEnd")[0].style.left = '40px'
-            $(".videoEnd")[0].style.top = '-570px'
-            $('#clickBtn')[0].style.marginLeft = ($(".videoEnd")[0].style.height.replace('px', '') - 400 -200) / 2 + 'px'
-            $('.now')[0].style.marginRight = '0'
         }
     }
 
     // load
     $(window).load(function () {
         device()
+    });
+    $(window).resize(function () {
+    // alert($(window).width())
+    // alert($(document).height())
+     if($(window).width()>960) {
+       // alert('aa')
+       var flexible = new Flexible(1008, 640, 'no_border');
+       // $(".videoEnd")[0].style.padding = '30px 100px';
+       $(".videoEnd")[0].style.margin = '100px';
+       $(".videoEnd")[0].style.minWidth = '1000px'
+       // $(".videoEnd")[0].style.maxHeight = ($(".videoEnd")[0].style.height.replace('px', '') - 240) / 2 + 'px'
+       $(".videoEnd")[0].style.position = 'absolute'
+       $(".videoEnd")[0].style.left = '40px'
+       $(".videoEnd")[0].style.top = '-570px'
+       $('#clickBtn')[0].style.marginLeft = ($(".videoEnd")[0].style.height.replace('px', '') - 400 -200) / 2 + 'px'
+       $('.now')[0].style.marginRight = '0'
+     } else{
+       $(".videoEnd")[0].style.top = '0'
+       // alert($(window).width())
+       $(".videoEnd")[0].style.maxWidth = '640px'
+       $(".videoEnd")[0].style.top = '-200px'
+     }
     });
 })
