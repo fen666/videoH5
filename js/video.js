@@ -22,4 +22,29 @@
             myPlayer.play();
         });
     }, false);
+    function device () {
+    //平台、设备和操作系统
+    var system = {
+      win: false,
+      mac: false,
+      xll: false
+    };
+    //检测平台
+    var p = navigator.platform;
+    system.win = p.indexOf("Win") == 0;
+    system.mac = p.indexOf("Mac") == 0;
+    system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+    if (system.win || system.mac || system.xll) {  // PC
+      // resize
+      $(window).resize(function () {
+        location.reload();
+      });
+    } else {  // mobile
+      var flexible = new Flexible(1008, 640, 'no_border');
+    }
+  }
+      // onload
+      $(window).load(function () {
+        device()
+      })
 })

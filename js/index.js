@@ -21,25 +21,28 @@ $(function () {
             $('#main')[0].style.marginTop = ($(window).height() - $('#main').height())/2 + 'px'
             $('#main')[0].style.marginLeft = -$('#main').width() / 2 + 'px'
         } else {  // mobile
+            var flexible = new Flexible(1008, 640, 'no_border');
             $('#circrlBox').addClass('scalSmall')
-            window.addEventListener('orientationchange', function (event) {
-                if (window.orientation == 180 || window.orientation == 0) {  // 竖屏
-                    // alert($(window).height())
-                    // alert($('#main').height()/5*3)
-                    // alert($(window).width())
-                    $('#main')[0].style.marginTop = ($(window).height() - $('#main').height()/5*3)/2 + 'px'
-                    $('#main')[0].style.marginLeft = -$('#main').width() / 2 + 'px'
-                }
-                if (window.orientation == 90 || window.orientation == -90) {  // 横屏
-                    // alert($(window).height()*2)
-                    // alert($('#main').height()/5*3)
-                    // alert($(window).width())
-                    $('#main')[0].style.marginLeft =-$('#main').width() / 2 + 'px'
-                    $('#main')[0].style.marginTop = '20px'
-                    // $('#main')[0].style.marginTop = ($(window).width() - $('#main').height()/5*3)/2 + 'px'
-                    // alert($('#main')[0].style.marginTop)
-                }
-            });
+            $('#main')[0].style.marginTop = -($(window).height() - $('#main').height()/5*3 + 100)/2 + 'px'
+            $('#main')[0].style.marginLeft = -$('#main').width() / 2 + 'px'
+            // window.addEventListener('orientationchange', function (event) {
+            //     if (window.orientation == 180 || window.orientation == 0) {  // 竖屏
+            //         // alert($(window).height())
+            //         // alert($('#main').height()/5*3)
+            //         // alert($(window).width())
+            //         $('#main')[0].style.marginTop = ($(window).height() - $('#main').height()/5*3)/2 + 'px'
+            //         $('#main')[0].style.marginLeft = -$('#main').width() / 2 + 'px'
+            //     }
+            //     if (window.orientation == 90 || window.orientation == -90) {  // 横屏
+            //         // alert($(window).height()*2)
+            //         // alert($('#main').height()/5*3)
+            //         // alert($(window).width())
+            //         $('#main')[0].style.marginLeft =-$('#main').width() / 2 + 'px'
+            //         $('#main')[0].style.marginTop = '20px'
+            //         // $('#main')[0].style.marginTop = ($(window).width() - $('#main').height()/5*3)/2 + 'px'
+            //         // alert($('#main')[0].style.marginTop)
+            //     }
+            // });
         }
     }
 

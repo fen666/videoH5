@@ -3,7 +3,7 @@ body {
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  background: url('../images/bg.png') repeat;
+  background: #1d1919 url('../images/bg.png') repeat;
   background-size: 100%;
   position: relative;
   overflow: hidden;
@@ -115,18 +115,36 @@ body {
   top: 120px;
 }
 .container .main .circrlBox .showAll h5 {
-  font-size: 36px;
-  line-height: 60px;
-  color: #ffa514;
   text-align: center;
 }
 .container .main .circrlBox .showAll h5:nth-child(1) {
-  margin-top: 30px;
+  width: 210px;
+  height: 90px;
+  margin-left: 25px;
+  margin-top: 45px;
+}
+.container .main .circrlBox .showAll h5:nth-child(1) img {
+  width: 100%;
+  height: 100%;
+}
+.container .main .circrlBox .showAll h5:nth-child(2) {
+  width: 170px;
+  height: 40px;
+  margin-left: 45px;
+}
+.container .main .circrlBox .showAll h5:nth-child(2) img {
+  width: 100%;
+  height: 100%;
 }
 .container .main .circrlBox .showAll p {
-  font-size: 22px;
-  color: #ffa514;
-  text-align: center;
+  width: 205px;
+  height: 27px;
+  margin-top: 30px;
+  margin-left: 33px;
+}
+.container .main .circrlBox .showAll p img {
+  width: 100%;
+  height: 100%;
 }
 .container .birds {
   position: absolute;
@@ -139,6 +157,12 @@ body {
   left: 0;
   top: 0;
   animation: flayRB 12s ease infinite;
+}
+.container .birds2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: flayLT 10s ease infinite;
 }
 @keyframes rotating {
    from {
@@ -166,5 +190,15 @@ body {
   to {
     left: -500px;
     top: 200px;
+  }
+}
+@keyframes flayLT {
+  from {
+    left: -500px;
+    top: 500px;
+  }
+  to {
+    left: 1520px;
+    top: 0px;
   }
 }
