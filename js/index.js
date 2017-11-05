@@ -130,7 +130,7 @@ $(function () {
           $('.videoPlay')[0].style.width = 0 + 'px'
           $('.videoPlay')[0].style.height = 0 + 'px'
           if (index + 1 ===5){
-              window.location.href = '../page/endVideo.html'
+              window.location.href = './page/endVideo.html'
           }
       }
       myPlayer.on("ended", function(){
@@ -139,7 +139,7 @@ $(function () {
           $('.videoPlay')[0].style.width = 0 + 'px'
           $('.videoPlay')[0].style.height = 0 + 'px'
           if (index + 1 ===5){
-              window.location.href = '../page/endVideo.html'
+              window.location.href = './page/endVideo.html'
           }
       });
   }
