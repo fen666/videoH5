@@ -93,7 +93,7 @@ $(function () {
   function video (index) {
       // 自动播放视频
       var myPlayer = videojs('my-video');
-      var videoUrl = '../video/video'+parseInt(index+1)+'.mp4';
+      var videoUrl = './video/video'+parseInt(index+1)+'.mp4';
       videojs("my-video", {}, function() {
           window.myPlayer = this;
           $("#mymoda .video-con #my-video source").attr("src", videoUrl);
