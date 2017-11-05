@@ -1,5 +1,6 @@
 $(function () {
   function device () {
+      init()
     //平台、设备和操作系统
     var system = {
       win: false,
@@ -21,6 +22,19 @@ $(function () {
         $('#main')[0].style.marginTop = ($(window).height() - $('#main').height())/2 + 'px'
         $('#main')[0].style.marginLeft = -$('#main').width() / 2 + 'px'
     } else {  // mobile
+        $(window).resize(function () {
+            var valH = $(window).height()
+            $('#circrlBox').addClass('scalSmall')
+            $('.container').css('min-height', valH)
+            $('#main')[0].style.marginLeft = -$('#main').width() / 2 + 'px'
+            $('#main')[0].style.marginTop = (valH - $('#main').height())/2 + 'px'
+            if($(window).width()<$(window).height()) {
+                alert('请开启手机旋转屏幕功能，确保在横屏模式下浏览本视频 ！')
+            }
+        });
+        if($(window).width()<$(window).height()) {
+            alert('请开启手机旋转屏幕功能，确保在横屏模式下浏览本视频 ！')
+        }
       $('#circrlBox').addClass('scalSmall')
       $('.container').css('min-height', $(window).height())
       $('#main')[0].style.marginLeft = -$('#main').width() / 2 + 'px'
@@ -49,12 +63,94 @@ $(function () {
   c.fill()
     /* 扇形 end */
 
+  function init () {
+    $('.fiveBtn').find('button').each(function() {
+        if ($(this).prop('disabled')) {
+            $(this).addClass('errorClick')
+            $(this).removeClass('okClick')
+        }else {
+            $(this).addClass('okClick')
+            $(this).removeClass('errorClick')
+        }
+        $(this).click(function() {
+            $('.container')[0].style.zIndex = '1';
+            $('.videoPlay')[0].style.display = 'block';
+            var index = $(this).index()
+            video(index)
+            if ($(this).prop("disabled") === false) { // 点击当前未禁用
+                $(this).next('button').removeAttr("disabled",'disabled')
+                if ($(this).next('button').prop('disabled')) {
+                    $(this).next('button').addClass('errorClick')
+                    $(this).next('button').removeClass('okClick')
+                }else {
+                    $(this).next('button').addClass('okClick')
+                    $(this).next('button').removeClass('errorClick')
+                }
+            }
+        })
+    })
+  }
+  function video (index) {
+      // 自动播放视频
+      var myPlayer = videojs('my-video');
+      var videoUrl = '../video/video'+parseInt(index+1)+'.mp4';
+      videojs("my-video", {}, function() {
+          window.myPlayer = this;
+          $("#mymoda .video-con #my-video source").attr("src", videoUrl);
+          myPlayer.src(videoUrl);
+          myPlayer.load(videoUrl);
+          myPlayer.play();
+      });
+      // 视频宽高设置
+      var valW = $(window).width()
+      var valH = $(window).height()
+      $('.videoPlay')[0].style.width = valW + 'px'
+      $('.videoPlay')[0].style.height = valH + 'px'
+      $('#my-video_html5_api')[0].style.width = valW + 'px'
+      $('#my-video_html5_api')[0].style.height = valH + 'px'
+      //微信下兼容自动播放
+      document.addEventListener("WeixinJSBridgeReady", function () {
+          videojs("my-video").ready(function(){
+              var myPlayer = this;
+              myPlayer.play();
+          });
+      }, false);
+      //JS绑定点击页面播放
+      $('.videoPlay').on('touchstart', function(){
+          videojs("my-video").ready(function(){
+              var myPlayer = this;
+              myPlayer.play();
+              setTimeout(end, 23000)
+          });
+      })
+      // 视频结束-展示结束页面
+      function end () {
+          $('.container')[0].style.zIndex = '200';
+          $('.videoPlay')[0].style.display = 'none';
+          $('.videoPlay')[0].style.width = 0 + 'px'
+          $('.videoPlay')[0].style.height = 0 + 'px'
+          if (index + 1 ===5){
+              window.location.href = '../page/endVideo.html'
+          }
+      }
+      myPlayer.on("ended", function(){
+          $('.container')[0].style.zIndex = '200';
+          $('.videoPlay')[0].style.display = 'none';
+          $('.videoPlay')[0].style.width = 0 + 'px'
+          $('.videoPlay')[0].style.height = 0 + 'px'
+          if (index + 1 ===5){
+              window.location.href = '../page/endVideo.html'
+          }
+      });
+  }
+
   // onload
   $(window).load(function () {
     device()
+    // init()
   })
   // resize
-  $(window).resize(function () {
-    location.reload();
-  });
+  // $(window).resize(function () {
+  //   location.reload();
+  // });
 })

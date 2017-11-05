@@ -6,12 +6,14 @@ body{
     background: url('../images/bg.png') repeat-y;
 	background-size: 100%;
     overflow: hidden;
+  	position: relative;
 }
 .container{
 	width:100%;
 	height:100%;
 	overflow:hidden;
     position: relative;
+  //z-index: 200;
 	.main{
 		width:500px;
 		height:500px;
@@ -68,18 +70,27 @@ body{
 			  position: absolute;
 			  left:50px;
 			  top:50px;
-			  span{
-				a{
-				  width: 50px;
-				  height:50px;
-				  display: inline-block;
-				  background: #fdfdfc;
-				  border-radius: 50%;
-				  text-align: center;
-				  line-height: 50px;
-				  color: #262423;
-				  font-style:italic;
-				  font-size: 26px;
+			  button{
+				width: 50px;
+				height:50px;
+				display: inline-block;
+				background: #fdfdfc;
+				border-radius: 50%;
+				border-color:transparent;
+				outline: none;
+				//text-align: center;
+				padding-left: 10px;
+				line-height: 50px;
+				color: #262423;
+				font-style:italic;
+				font-size: 26px;
+				&.okClick{
+				  background: #fff;
+				  cursor: pointer;
+				}
+				&.errorClick{
+				  background: #444;
+				  cursor: auto;
 				}
 				&:nth-child(1){
 				  position: absolute;
@@ -185,4 +196,15 @@ body{
 @keyframes flayLT {
   　　from {left:-500px; top:500px;}
   　　to {left:1520px; top:0px;}
+}
+
+.videoPlay{
+  width:100%;
+  height:auto;
+  background: #1e181b;
+  display: none;
+  position: absolute;
+  left:0;
+  top:0;
+  z-index: 100;
 }

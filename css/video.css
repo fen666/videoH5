@@ -4,17 +4,12 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  background: #1e181b;
-  background-size: 100% 100%;
+  background: url('../images/bgEnd.png') repeat;
+  background-size: 100%;
   position: relative;
   overflow: hidden;
 }
-body .main {
-  width: 100%;
-  height: 100%;
-}
 body .videoEnd {
-  display: none;
   overflow: hidden;
 }
 body .videoEnd .open {
@@ -29,6 +24,28 @@ body .videoEnd .open img {
 body .videoEnd p {
   width: 400px;
   height: 40px;
+}
+body .videoEnd p.mobileS {
+  width: 400px;
+  height: 20px;
+}
+body .videoEnd p.mobileS span {
+  width: 170px;
+  height: 20px;
+  border: 1px solid #ecae50;
+  font-size: 16px;
+  text-align: center;
+  line-height: 20px;
+  display: inline-block;
+}
+body .videoEnd p.mobileS span:nth-child(1) {
+  margin-right: 40px;
+}
+body .videoEnd p.mobileS span a {
+  width: 170px;
+  height: 20px;
+  display: inline-block;
+  color: #ecae50;
 }
 body .videoEnd p span {
   width: 170px;

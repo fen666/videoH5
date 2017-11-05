@@ -2,38 +2,6 @@
  * Created by Administrator on 2017/10/26/026.
  */
 ($)(function() {
-    // 自动播放视频
-    var myPlayer = videojs('my-video');
-    videojs("my-video").ready(function(){
-        var myPlayer = this;
-        myPlayer.play();
-    });
-    // 视频宽高设置
-    var valW = $(window).width()
-    var valH = $(window).height()
-    $('#my-video')[0].style.width = valW + 'px'
-    $('#my-video')[0].style.height = valH + 'px'
-    //微信下兼容自动播放
-    document.addEventListener("WeixinJSBridgeReady", function () {
-        videojs("my-video").ready(function(){
-            var myPlayer = this;
-            myPlayer.play();
-        });
-    }, false);
-    //JS绑定自动播放（操作window时，播放音乐）
-    $(window).one('touchstart', function(){
-        videojs("my-video").ready(function(){
-            var myPlayer = this;
-            myPlayer.play();
-        });
-    })
-    // 视频结束-展示结束页面
-    myPlayer.on("ended", function(){
-        $("body").css("background", "url('../images/bgEnd.png') repeat")
-        $(".videoEnd").fadeIn(3000)
-        $(".main").fadeOut(2000)
-        $("#my-video").fadeOut(2000)
-    });
     /* 结束页面 */
     var valW = $(window).width()
     var valH = $(window).height()
@@ -61,9 +29,25 @@
             $(".videoEnd")[0].style.padding = '30px 100px';
             $(".videoEnd")[0].style.margin = '70px';
         } else {  // mobile
+            $(window).resize(function () {
+                var valW = $(window).width()
+                var valH = $(window).height()
+                $('#videoEnd')[0].style.width = valW - 340 + 'px'
+                $('#videoEnd')[0].style.height = valH - 200 + 'px'
+                $('#clickBtn')[0].style.marginLeft = (valW - 340 - 400) / 2 + 'px'
+                if($(window).width()<$(window).height()) {
+                    alert('请开启手机旋转屏幕功能，确保在横屏模式下浏览本视频 ！')
+                }
+            });
+            if($(window).width()<$(window).height()) {
+                alert('请开启手机旋转屏幕功能，确保在横屏模式下浏览本视频 ！')
+            }
             $(".videoEnd")[0].style.background = '#1d1819';
-            $(".videoEnd")[0].style.padding = '50px 120px';
+            $(".videoEnd")[0].style.padding = '30px 120px 70px';
             $(".videoEnd")[0].style.margin = '50px';
+            $(".open img")[0].style.width = '80%';
+            $(".open img")[0].style.paddingLeft = '10%';
+            $(".clickBtn").addClass('mobileS')
         }
     }
     // load
