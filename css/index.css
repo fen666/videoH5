@@ -253,6 +253,7 @@ body {
 }
 .videoPlay {
   width: 100%;
+  overflow: hidden;
   height: auto;
   background: #1e181b;
   display: none;
