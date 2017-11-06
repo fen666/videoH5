@@ -39,6 +39,13 @@ $(function () {
       $('.container').css('min-height', $(window).height())
       $('#main')[0].style.marginLeft = -$('#main').width() / 2 + 'px'
       $('#main')[0].style.marginTop = ($(window).height() - $('#main').height())/2 + 'px'
+        $('.birds img')[0].style.width = '250px'
+        $('.birds img')[0].style.height = '150px'
+          $('.birds1 img')[0].style.width = '250px'
+          $('.birds1 img')[0].style.height = '150px'
+        $('.birds1').addClass('new')
+        $('.birds2 img')[0].style.width = '250px'
+        $('.birds2 img')[0].style.height = '150px'
     }
   }
 

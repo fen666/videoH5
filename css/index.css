@@ -159,22 +159,43 @@ body {
   height: 100%;
 }
 .container .birds {
+  width: 400px;
+  height: 240px;
   position: fixed;
   left: 300px;
   top: 0;
   animation: flayRT 10s ease infinite;
 }
+.container .birds img {
+  width: 100%;
+  height: 100%;
+}
 .container .birds1 {
+  width: 400px;
+  height: 240px;
   position: fixed;
   left: 300px;
   top: 0;
   animation: flayRB 12s ease infinite;
 }
+.container .birds1 img {
+  width: 100%;
+  height: 100%;
+}
+.container .birds1.new {
+  animation: flayRBS 12s ease infinite;
+}
 .container .birds2 {
+  width: 400px;
+  height: 240px;
   position: fixed;
   left: 0;
   top: 0;
   animation: flayLT 10s ease infinite;
+}
+.container .birds2 img {
+  width: 100%;
+  height: 100%;
 }
 @keyframes rotating {
    from {
@@ -186,7 +207,7 @@ body {
 }
 @keyframes flayRT {
   from {
-    left: 1520px;
+    left: 2020px;
     top: 100px;
   }
   to {
@@ -207,11 +228,21 @@ body {
 @keyframes flayLT {
   from {
     left: -500px;
+    top: 200px;
+  }
+  to {
+    left: 2020px;
+    top: 0px;
+  }
+}
+@keyframes flayRBS {
+  from {
+    left: 2500px;
     top: 500px;
   }
   to {
-    left: 1520px;
-    top: 0px;
+    left: -500px;
+    top: 100px;
   }
 }
 .videoPlay {
