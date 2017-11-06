@@ -65,3 +65,9 @@ body .videoEnd p span a {
   display: inline-block;
   color: #ecae50;
 }
+body .audioPlay {
+  position: absolute;
+  left: 0;
+  top: -10000px;
+  z-index: 100;
+}

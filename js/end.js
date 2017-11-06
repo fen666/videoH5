@@ -50,8 +50,24 @@
             $(".clickBtn").addClass('mobileS')
         }
     }
+    function audio () {
+        var audio = document.getElementById('audio');
+        audio.play();
+        window.onload=function(){
+            audio.play();
+        }
+        //JS绑定点击页面播放
+        $('html').on('touchstart',function(){
+            audio.play();
+        });
+        //微信下兼容自动播放
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+    }
     // load
     $(window).load(function () {
         device()
+        audio()
     });
 })

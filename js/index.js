@@ -71,6 +71,7 @@ $(function () {
     /* 扇形 end */
 
   function init () {
+    audio()
     $('.fiveBtn').find('button').each(function() {
         if ($(this).prop('disabled')) {
             $(this).addClass('errorClick')
@@ -84,6 +85,7 @@ $(function () {
             $('.videoPlay')[0].style.display = 'block';
             var index = $(this).index()
             video(index)
+            audio()
             if ($(this).prop("disabled") === false) { // 点击当前未禁用
                 $(this).next('button').removeAttr("disabled",'disabled')
                 if ($(this).next('button').prop('disabled')) {
@@ -96,6 +98,21 @@ $(function () {
             }
         })
     })
+  }
+  function audio () {
+      var audio = document.getElementById('audio');
+      audio.play();
+      window.onload=function(){
+          audio.play();
+      }
+      //JS绑定点击页面播放
+      $('html').on('touchstart',function(){
+          audio.play();
+      });
+      //微信下兼容自动播放
+      document.addEventListener("WeixinJSBridgeReady", function () {
+          audio.play();
+      }, false);
   }
   function video (index) {
       // 自动播放视频
@@ -111,8 +128,8 @@ $(function () {
       // 视频宽高设置
       var valW = $(window).width()
       var valH = $(window).height()
-      $('.videoPlay')[0].style.width = valW + 'px'
-      $('.videoPlay')[0].style.height = valH + 'px'
+      $('.videoPlay')[0].style.width = valW/2 + 'px'
+      $('.videoPlay')[0].style.height = valH/2 + 'px'
       $('#my-video_html5_api')[0].style.width = valW + 'px'
       $('#my-video_html5_api')[0].style.height = valH + 'px'
       //微信下兼容自动播放

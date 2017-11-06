@@ -245,6 +245,12 @@ body {
     top: 100px;
   }
 }
+.audioPlay {
+  position: absolute;
+  left: 0;
+  top: -10000px;
+  z-index: 100;
+}
 .videoPlay {
   width: 100%;
   height: auto;
