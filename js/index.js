@@ -117,9 +117,19 @@ $(function () {
     }
 
     function video (index) {
+        // 视频宽高设置
+        var valW = $(window).width()
+        var valH = $(window).height()
+        $('.videoPlay')[0].style.width = valW + 'px'
+        $('.videoPlay')[0].style.height = valH + 'px'
+        $('.video-js')[0].style.width = valW + 'px'
+        $('.video-js')[0].style.height = valH + 'px'
+        $('#my-video_html5_api')[0].style.width = valW + 'px'
+        $('#my-video_html5_api')[0].style.height = valH + 'px'
         // 自动播放视频
         var myPlayer = videojs('my-video');
         var videoUrl = './video/video' + parseInt(index + 1) + '.mp4';
+
         videojs("my-video", {}, function () {
             window.myPlayer = this;
             $("#mymoda .video-con #my-video source").attr("src", videoUrl);
@@ -127,13 +137,6 @@ $(function () {
             myPlayer.load(videoUrl);
             myPlayer.play();
         });
-        // 视频宽高设置
-        var valW = $(window).width()
-        var valH = $(window).height()
-        $('.videoPlay')[0].style.width = valW + 'px'
-        $('.videoPlay')[0].style.height = valH + 'px'
-        $('#my-video_html5_api')[0].style.width = valW + 'px'
-        $('#my-video_html5_api')[0].style.height = valH + 'px'
         //微信下兼容自动播放
         document.addEventListener("WeixinJSBridgeReady", function () {
             videojs("my-video").ready(function () {
@@ -155,6 +158,10 @@ $(function () {
             $('.videoPlay')[0].style.display = 'none';
             $('.videoPlay')[0].style.width = 0 + 'px'
             $('.videoPlay')[0].style.height = 0 + 'px'
+            $('.video-js')[0].style.width = 0 + 'px'
+            $('.video-js')[0].style.height = 0 + 'px'
+            $('#my-video_html5_api')[0].style.width = 0 + 'px'
+            $('#my-video_html5_api')[0].style.height = 0 + 'px'
             if (index + 1 === 5) {
                 window.location.href = './page/endVideo.html'
             }
@@ -165,6 +172,10 @@ $(function () {
             $('.videoPlay')[0].style.display = 'none';
             $('.videoPlay')[0].style.width = 0 + 'px'
             $('.videoPlay')[0].style.height = 0 + 'px'
+            $('.video-js')[0].style.width = 0 + 'px'
+            $('.video-js')[0].style.height = 0 + 'px'
+            $('#my-video_html5_api')[0].style.width = 0 + 'px'
+            $('#my-video_html5_api')[0].style.height = 0 + 'px'
             if (index + 1 === 5) {
                 window.location.href = './page/endVideo.html'
             }
