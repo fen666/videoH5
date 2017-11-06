@@ -128,8 +128,8 @@ $(function () {
       // 视频宽高设置
       var valW = $(window).width()
       var valH = $(window).height()
-      $('.videoPlay')[0].style.width = valW/2 + 'px'
-      $('.videoPlay')[0].style.height = valH/2 + 'px'
+      $('.videoPlay')[0].style.width = valW + 'px'
+      $('.videoPlay')[0].style.height = valH + 'px'
       $('#my-video_html5_api')[0].style.width = valW + 'px'
       $('#my-video_html5_api')[0].style.height = valH + 'px'
       //微信下兼容自动播放
