@@ -10,7 +10,7 @@ var path = {
 	less: './css/*.less',
 	css: './css/*.css',
 	js: './js/*.js',
-	video: './video/*.mp4',
+	video: ['./video/*.mp4', './video/*.mp3'],
 	image: './images/*.{png,jpg,gif,ico}'
 }
 var out = {
