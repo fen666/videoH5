@@ -29,6 +29,18 @@
             $(".videoEnd")[0].style.padding = '30px 100px';
             $(".videoEnd")[0].style.margin = '70px';
         } else {  // mobile
+            $(".videoEnd")[0].style.background = '#1d1819';
+            $(".videoEnd")[0].style.padding = '30px 120px 70px';
+            $(".videoEnd")[0].style.margin = '50px';
+            $(".open img")[0].style.width = '70%';
+            $(".open img")[0].style.paddingLeft = '15%';
+            $(".clickBtn").addClass('mobileS')
+            if($(window).width()<$(window).height()) {
+                $('.tip')[0].style.display = 'block'
+                $(".videoEnd")[0].style.margin = '50px';
+            } else {
+                $('.tip')[0].style.display = 'none'
+            }
             $(window).resize(function () {
                 var valW = $(window).width()
                 var valH = $(window).height()
@@ -36,18 +48,12 @@
                 $('#videoEnd')[0].style.height = valH - 200 + 'px'
                 $('#clickBtn')[0].style.marginLeft = (valW - 340 - 400) / 2 + 'px'
                 if($(window).width()<$(window).height()) {
-                    alert('请开启手机旋转屏幕功能，确保在横屏模式下浏览本视频 ！')
+                    $('.tip')[0].style.display = 'block'
+                    $(".videoEnd")[0].style.margin = '50px';
+                } else {
+                    $('.tip')[0].style.display = 'none'
                 }
             });
-            if($(window).width()<$(window).height()) {
-                alert('请开启手机旋转屏幕功能，确保在横屏模式下浏览本视频 ！')
-            }
-            $(".videoEnd")[0].style.background = '#1d1819';
-            $(".videoEnd")[0].style.padding = '30px 120px 70px';
-            $(".videoEnd")[0].style.margin = '50px';
-            $(".open img")[0].style.width = '70%';
-            $(".open img")[0].style.paddingLeft = '15%';
-            $(".clickBtn").addClass('mobileS')
         }
     }
     function audio () {

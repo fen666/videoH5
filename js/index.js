@@ -1,6 +1,5 @@
 $(function () {
     function device () {
-        init()
         //平台、设备和操作系统
         var system = {
             win: false,
@@ -18,23 +17,37 @@ $(function () {
                 location.reload();
             });
         } else {  // mobile
-            $(window).resize(function () {
-                if ($(window).width() < $(window).height()) {
-                    alert('请开启手机旋转屏幕功能，确保在横屏模式下浏览本视频 ！')
-                }
-            });
             if ($(window).width() < $(window).height()) {
-                alert('请开启手机旋转屏幕功能，确保在横屏模式下浏览本视频 ！')
+                $('.tip')[0].style.display = 'block'
+            } else {
+                $('.tip')[0].style.display = 'none'
             }
+            $(window).resize(function () {
+                if($(window).width()<$(window).height()) {
+                    $('.tip')[0].style.display = 'block'
+                } else {
+                    $('.tip')[0].style.display = 'none'
+                }
+                // 视频宽高设置
+                var valW = $(window).width()
+                var valH = $(window).height()
+                $('.videoPlay')[0].style.width = valW + 'px'
+                $('.videoPlay')[0].style.height = valH + 'px'
+                $('#video')[0].style.width = valW + 'px'
+                $('#video')[0].style.height = valH + 'px'
+            });
+            // 视频宽高设置
+            var valW = $(window).width()
+            var valH = $(window).height()
+            $('.videoPlay')[0].style.width = valW + 'px'
+            $('.videoPlay')[0].style.height = valH + 'px'
+            $('#video')[0].style.width = valW + 'px'
+            $('#video')[0].style.height = valH + 'px'
         }
     }
 
-    function init () {
-        audio()
-        video()
-    }
-
     function audio () {
+        // 自动播放音频
         var audio = document.getElementById('audio');
         audio.play();
         window.onload = function () {
@@ -50,7 +63,7 @@ $(function () {
         }, false);
     }
 
-    function video (index) {
+    function video () {
         // 视频宽高设置
         var valW = $(window).width()
         var valH = $(window).height()
@@ -61,30 +74,62 @@ $(function () {
         // 自动播放视频
         var video = document.getElementById('video');
         video.play();
-        setTimeout(pause, 5000)
+        // //JS绑定点击页面播放
+        // $('html').one('touchstart', function () {
+        //     video.play();
+        // });
         //微信下兼容自动播放
         document.addEventListener("WeixinJSBridgeReady", function () {
             video.play();
-            setTimeout(pause, 5000)
         }, false);
+        // 暂停时间点
+        var stepTarget = 'step1'
+        var timePoint = {
+            step1: 4,
+            step2: 9,
+            step3: 13
+        }
+        // 播放位置改变时触发
+        video.ontimeupdate = function () {
+            // console.log(video.currentTime)
+            var current = video.currentTime
+            if (parseInt(current) === timePoint.step1 && stepTarget === 'step1'){
+                pause()
+                stepTarget = 'step2'
+            } else if (parseInt(current) === timePoint.step2 && stepTarget === 'step2'){
+                pause()
+                stepTarget = 'step3'
+            } else if (parseInt(current) === timePoint.step3 && stepTarget === 'step3'){
+                pause()
+                stepTarget = 'step4'
+            }
+        }
         // 视频暂停
         function pause () {
             video.pause();
-            alert('11')
-            $('.videoPlay').on('click', function () {
+            $('.point')[0].style.display = 'block'
+            $('html').on('click', function () {
                 video.play();
+                $('.point')[0].style.display = 'none'
             })
-            $('.videoPlay').on('touchstart', function () {
+            $('html').on('touchstart', function () {
                 video.play();
+                $('.point')[0].style.display = 'none'
             })
         }
         video.onended = function() {
-            window.location.href = './page/endVideo.html'
+            window.location.href = '../page/end.html'
         };
     }
 
     // onload
     $(window).load(function () {
         device()
+        audio()
+        video()
     })
+    // resize
+    // $(window).resize(function () {
+    //     location.reload();
+    // });
 })
