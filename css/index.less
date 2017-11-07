@@ -172,6 +172,7 @@ body{
 	left:300px;
 	top:0;
 	animation: flayRT 10s ease infinite;
+	-webkit-animation: flayRT 10s ease infinite;
   }
   .birds1{
 	width:400px;
@@ -184,8 +185,10 @@ body{
 	left:300px;
 	top:0;
 	animation: flayRB 12s ease infinite;
+	-webkit-animation: flayRB 12s ease infinite;
 	&.new{
 	  animation: flayRBS 12s ease infinite;
+	  -webkit-animation: flayRBS 12s ease infinite;
 	}
   }
   .birds2{
@@ -199,6 +202,7 @@ body{
 	left:0;
 	top:0;
 	animation: flayLT 10s ease infinite;
+	-webkit-animation: flayLT 10s ease infinite;
   }
 }
 
@@ -206,11 +210,23 @@ body{
 　　 from { -webkit-transform: rotate(0) }
      to { -webkit-transform: rotate(360deg) }
 }
+@-webkit-keyframes rotating {
+　　 from { -webkit-transform: rotate(0) }
+to { -webkit-transform: rotate(360deg) }
+}
 @keyframes flayRT {
 　　from {left:2020px; top:100px;}
 　　to {left:-500px; top:100px;}
 }
+@-webkit-keyframes flayRT {
+  　　from {left:2020px; top:100px;}
+  　　to {left:-500px; top:100px;}
+}
 @keyframes flayRB {
+  　　from {left:2500px; top:800px;}
+  　　to {left:-500px; top:200px;}
+}
+@-webkit-keyframes flayRB {
   　　from {left:2500px; top:800px;}
   　　to {left:-500px; top:200px;}
 }
@@ -218,7 +234,15 @@ body{
   　　from {left:-500px; top:200px;}
   　　to {left:2020px; top:0px;}
 }
+@-webkit-keyframes flayLT {
+  　　from {left:-500px; top:200px;}
+  　　to {left:2020px; top:0px;}
+}
 @keyframes flayRBS {
+  　　from {left:2500px; top:500px;}
+  　　to {left:-500px; top:100px;}
+}
+@-webkit-keyframes flayRBS {
   　　from {left:2500px; top:500px;}
   　　to {left:-500px; top:100px;}
 }
