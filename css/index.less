@@ -3,11 +3,25 @@ body{
 	width:100%;
 	height:100%;
     margin: 0 auto; 
-    background: url('../images/bg.png') repeat-y;
-	background-size: 100%;
+    background: #1e181b;
     overflow: hidden;
   	position: relative;
 }
+
+.audioPlay{
+  position: absolute;
+  left:0;
+  top:-1000px;
+  z-index: 2;
+}
+.videoPlay{
+  width:100%;
+  overflow:hidden;
+  height:auto;
+  background: #1e181b;
+}
+
+// --------------------
 .container{
 	width:100%;
 	height:100%;
@@ -245,21 +259,4 @@ to { -webkit-transform: rotate(360deg) }
 @-webkit-keyframes flayRBS {
   　　from {left:2500px; top:500px;}
   　　to {left:-500px; top:100px;}
-}
-.audioPlay{
-  position: absolute;
-  left:0;
-  top:-10000px;
-  z-index: 100;
-}
-.videoPlay{
-  width:100%;
-  overflow:hidden;
-  height:auto;
-  background: #1e181b;
-  display: none;
-  position: absolute;
-  left:0;
-  top:0;
-  z-index: 100;
 }
