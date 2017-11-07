@@ -129,7 +129,6 @@ $(function () {
         // 自动播放视频
         var myPlayer = videojs('my-video');
         var videoUrl = './video/video' + parseInt(index + 1) + '.mp4';
-
         videojs("my-video", {}, function () {
             window.myPlayer = this;
             $("#mymoda .video-con #my-video source").attr("src", videoUrl);
@@ -146,10 +145,12 @@ $(function () {
         }, false);
         //JS绑定点击页面播放
         $('.videoPlay').on('touchstart', function () {
+            clearTimeout(play)
             videojs("my-video").ready(function () {
                 var myPlayer = this;
                 myPlayer.play();
-                setTimeout(end, 17000)
+                // setTimeout(end, 17000)
+                play = setTimeout(end, 17000)
             });
         })
         // 视频结束-展示结束页面
@@ -166,7 +167,6 @@ $(function () {
                 window.location.href = './page/endVideo.html'
             }
         }
-
         myPlayer.on("ended", function () {
             $('.container')[0].style.zIndex = '200';
             $('.videoPlay')[0].style.display = 'none';

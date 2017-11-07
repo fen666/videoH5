@@ -45,8 +45,8 @@
             $(".videoEnd")[0].style.background = '#1d1819';
             $(".videoEnd")[0].style.padding = '30px 120px 70px';
             $(".videoEnd")[0].style.margin = '50px';
-            $(".open img")[0].style.width = '80%';
-            $(".open img")[0].style.paddingLeft = '10%';
+            $(".open img")[0].style.width = '70%';
+            $(".open img")[0].style.paddingLeft = '15%';
             $(".clickBtn").addClass('mobileS')
         }
     }
