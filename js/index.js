@@ -118,7 +118,7 @@ $(function () {
             })
         }
         video.onended = function() {
-            window.location.href = '../page/end.html'
+            window.location.href = './page/end.html'
         };
     }
 
