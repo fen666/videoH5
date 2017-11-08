@@ -74,10 +74,6 @@ $(function () {
         // 自动播放视频
         var video = document.getElementById('video');
         video.play();
-        // //JS绑定点击页面播放
-        // $('html').one('touchstart', function () {
-        //     video.play();
-        // });
         //微信下兼容自动播放
         document.addEventListener("WeixinJSBridgeReady", function () {
             video.play();
