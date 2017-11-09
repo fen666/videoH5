@@ -29,6 +29,7 @@
             $(".videoEnd")[0].style.padding = '30px 100px';
             $(".videoEnd")[0].style.margin = '70px';
         } else {  // mobile
+            $('.tip')[0].style.paddingTop = ($(window).height() - $(window).width())/2 + 'px'
             $(".videoEnd")[0].style.background = '#1d1819';
             $(".videoEnd")[0].style.padding = '30px 120px 70px';
             $(".videoEnd")[0].style.margin = '50px';
@@ -38,6 +39,7 @@
             if($(window).width()<$(window).height()) {
                 $('.tip')[0].style.display = 'block'
                 $(".videoEnd")[0].style.margin = '50px';
+                $('.tip')[0].style.paddingTop = ($(window).height() - $(window).width())/2 + 'px'
             } else {
                 $('.tip')[0].style.display = 'none'
             }
