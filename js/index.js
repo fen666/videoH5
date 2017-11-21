@@ -25,6 +25,7 @@ $(function () {
             } else {
                 $('.tip')[0].style.display = 'none'
                 $('.loading img')[0].style.marginTop = ($(window).height() - $('.loading img').height())/2 + 'px'
+                $('.point')[0].style.marginTop = ($(window).height() - $('.point').height())/2 + 'px'
             }
             // 视频宽高设置
             var valW = $(window).width()
@@ -40,6 +41,7 @@ $(function () {
                     $('.tip')[0].style.display = 'block'
                 } else {
                     $('.tip')[0].style.display = 'none'
+                    $('.point')[0].style.marginTop = ($(window).height() - $('.point').height())/2 + 'px'
                 }
                 // 视频宽高设置
                 var valW = $(window).width()
@@ -104,11 +106,11 @@ $(function () {
         // 暂停时间点
         var stepTarget = 'step1'
         var timePoint = {
-            step1: 8.5,
-            step2: 22,
-            step3: 31.5,
-            step4: 41.3,
-            step5: 52
+            step1: 9.3,
+            step2: 26.44,
+            step3: 37.44,
+            step4: 49.4,
+            step5: 61.7
         }
         // 播放位置改变时触发
         video.ontimeupdate = function () {
@@ -155,6 +157,10 @@ $(function () {
         audio()
         video()
         $('.loading img')[0].style.marginTop = ($(window).height() - $('.loading img').height())/2 + 'px'
+        $('.point')[0].style.marginTop = ($(window).height() - $('.point').height())/2 + 'px'
+        console.log($(window).height())
+        console.log($('.point').height())
+        console.log($('.point')[0].style.marginTop)
     })
     // resize
     // $(window).resize(function () {
