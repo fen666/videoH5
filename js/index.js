@@ -114,7 +114,7 @@ $(function () {
         }
         // 播放位置改变时触发
         video.ontimeupdate = function () {
-            console.log(video.currentTime)
+            // console.log(video.currentTime)
             var current = video.currentTime
             if (current >= timePoint.step1 && stepTarget === 'step1'){
                 pause()
