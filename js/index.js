@@ -25,7 +25,6 @@ $(function () {
             } else {
                 $('.tip')[0].style.display = 'none'
                 $('.loading img')[0].style.marginTop = ($(window).height() - $('.loading img').height())/2 + 'px'
-                $('.point')[0].style.marginTop = ($(window).height() - $('.point').height())/2 + 'px'
             }
             // 视频宽高设置
             var valW = $(window).width()
@@ -41,7 +40,6 @@ $(function () {
                     $('.tip')[0].style.display = 'block'
                 } else {
                     $('.tip')[0].style.display = 'none'
-                    $('.point')[0].style.marginTop = ($(window).height() - $('.point').height())/2 + 'px'
                 }
                 // 视频宽高设置
                 var valW = $(window).width()
@@ -99,7 +97,6 @@ $(function () {
             setTimeout(function () {
                 $('.videoPlay')[0].style.display = 'block'
                 $('.loading')[0].style.display = 'none'
-                // pause()
             }, 2000)
         }
 
@@ -157,13 +154,5 @@ $(function () {
         audio()
         video()
         $('.loading img')[0].style.marginTop = ($(window).height() - $('.loading img').height())/2 + 'px'
-        $('.point')[0].style.marginTop = ($(window).height() - $('.point').height())/2 + 'px'
-        console.log($(window).height())
-        console.log($('.point').height())
-        console.log($('.point')[0].style.marginTop)
     })
-    // resize
-    // $(window).resize(function () {
-    //     location.reload();
-    // });
 })
